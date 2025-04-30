@@ -2,7 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { BsCollectionPlayFill, BsFire, BsLightningFill } from "react-icons/bs";
 import { GiCancel, GiToken } from "react-icons/gi";
-import { FaFire, FaHome, FaRegBell, FaBars, FaTimes, FaRegCalendarAlt } from "react-icons/fa";
+import {
+  FaFire,
+  FaHome,
+  FaRegBell,
+  FaBars,
+  FaTimes,
+  FaRegCalendarAlt,
+} from "react-icons/fa";
 import { HiVideoCamera } from "react-icons/hi2";
 import { TbXboxX } from "react-icons/tb";
 import { BiLogIn } from "react-icons/bi";
@@ -65,7 +72,8 @@ const GlobalLayout = () => {
             </button>
             <Link to={"/main-page"}>
               <h1 className="relative text-2xl lg:text-4xl font-extrabold flex items-center text-blue-600">
-                <span className="text-4xl lg:text-5xl font-serif">E</span>ffective{" "}
+                <span className="text-4xl lg:text-5xl font-serif">E</span>
+                ffective{" "}
                 <span className="absolute top-0 left-29 lg:left-43  text-red-500 text-xl">
                   o
                 </span>
@@ -82,64 +90,99 @@ const GlobalLayout = () => {
 
             {isModalOpen && (
               <div
-                className="fixed inset-0   bg-black/65 bg-opacity-50 flex items-center justify-center z-50"
+                className="fixed inset-0 flex items-center justify-center z-50 backdrop-blur-sm"
                 onClick={() => setIsModalOpen(false)}
               >
                 <div
-                  className="p-5 max-w-[300px] lg:max-w-[450px]  bg-white rounded-2xl  w-full mx-4 space-y-5 font-sans"
+                  className="p-6 max-w-[300px] lg:max-w-[450px] bg-gradient-to-br from-white to-gray-50 rounded-3xl w-full mx-4 space-y-6 font-sans shadow-2xl border border-white/20"
                   onClick={(e) => e.stopPropagation()}
                 >
+                  {/* Header */}
                   <div className="flex items-center justify-between">
                     <div>
-                      <h2 className="text-2xl font-bold">Streak</h2>
-                      <p className="text-gray-500 text-sm">
+                      <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-700 to-blue-600 bg-clip-text text-transparent">
+                        Streak
+                      </h2>
+                      <p className="text-gray-600 text-sm mt-1">
                         Spacedan har kuni muntazam foydalanib boring
                       </p>
                     </div>
                     <button
-                      className="cursor-pointer"
+                      className="cursor-pointer hover:scale-110 transition-transform"
                       onClick={() => setIsModalOpen(false)}
                     >
-                      <TbXboxX className="text-2xl text-red-600" />
+                      <TbXboxX className="text-2xl text-rose-500 hover:text-rose-600" />
                     </button>
                   </div>
 
-                  <div className="bg-gray-100 p-2 lg:p-4 rounded-2xl flex flex-wrap justify-start mx-auto lg:justify-between items-center ">
-                    {days.map((day, idx) => (
-                      <div
-                        key={idx}
-                        className="flex flex-col shadow-md p-2 items-center text-xs font-medium"
-                      >
-                        {day.active ? (
-                          <BsFire className="text-orange-500 text-xs lg:text-2xl mb-1" />
-                        ) : (
-                          <div className="w-3 h-3  lg:w-6 lg:h-6 rounded-full bg-gray-300 mb-1"></div>
-                        )}
-                        <span
-                          className={
-                            day.active ? "text-black" : "text-gray-400"
-                          }
+                  {/* Streak Calendar */}
+                  <div className="bg-gradient-to-br from-purple-50 to-blue-50 p-3 lg:p-4 rounded-2xl border border-white shadow-inner">
+                    <div className="grid grid-cols-7 gap-2 justify-items-center">
+                      {days.map((day, idx) => (
+                        <div
+                          key={idx}
+                          className="flex flex-col items-center w-full"
                         >
-                          {day.name}
-                        </span>
-                      </div>
-                    ))}
+                          <div
+                            className={`w-8 h-8 lg:w-10 lg:h-10 rounded-full flex items-center justify-center mb-1 
+                ${
+                  day.active
+                    ? "bg-gradient-to-br from-orange-400 to-rose-500 shadow-lg shadow-orange-200 animate-pulse"
+                    : "bg-white/80 border border-gray-200"
+                }`}
+                          >
+                            {day.active ? (
+                              <BsFire className="text-white text-sm lg:text-xl" />
+                            ) : null}
+                          </div>
+                          <span
+                            className={`text-xs font-medium ${
+                              day.active
+                                ? "text-gray-800 font-bold"
+                                : "text-gray-500"
+                            }`}
+                          >
+                            {day.name}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
-                  <div className="bg-white border rounded-xl p-4 shadow-sm flex gap-4 items-center">
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/512/4242/4242531.png"
-                      alt="badge"
-                      className="w-14 h-14"
-                    />
+                  {/* Badge Card */}
+                  <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-4 shadow-md flex gap-4 items-center border border-white/50">
+                    <div className="relative">
+                      <img
+                        src="https://cdn-icons-png.flaticon.com/512/4242/4242531.png"
+                        alt="badge"
+                        className="w-14 h-14 drop-shadow-md"
+                      />
+                      <div className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 rounded-full border-2 border-white"></div>
+                    </div>
                     <div>
                       <h3 className="font-bold text-gray-800">
-                        Beydjik qo'lg'a kiriting!
+                        <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                          Beydjik qo'lg'a kiriting!
+                        </span>
                       </h3>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-gray-600 mt-1">
                         Spacedan har kuni muntazam ravishda foydalanib streaklar
                         yig'ing va beydjiklarni qo'lg'a kiriting!
                       </p>
+                    </div>
+                  </div>
+
+                  {/* Progress Bar */}
+                  <div className="pt-2">
+                    <div className="flex justify-between text-xs text-gray-500 mb-1">
+                      <span>Progress</span>
+                      <span>3/7 days</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        className="bg-gradient-to-r from-yellow-400 to-orange-500 h-2 rounded-full"
+                        style={{ width: "42%" }}
+                      ></div>
                     </div>
                   </div>
                 </div>
@@ -150,11 +193,12 @@ const GlobalLayout = () => {
               onClick={() => setCalendar(true)}
               className="flex items-center border  cursor-pointer text-blue-500 gap-1.5 rounded-2xl p-2 lg:p-3 hover:bg-gray-100"
             >
-              <GiToken className="text-amber-400" /><FaRegCalendarAlt className="text-xl" />
+              <GiToken className="text-amber-400" />
+              <FaRegCalendarAlt className="text-xl" />
             </button>
             {calendar && (
               <div
-                className="fixed inset-0 px-3   bg-black/65 bg-opacity-50 flex items-center justify-center z-50"
+                className="fixed inset-0 flex items-center justify-center z-50 backdrop-blur-sm"
                 onClick={() => setIsModalOpen(false)}
               >
                 <Calendar />
@@ -162,7 +206,7 @@ const GlobalLayout = () => {
                   onClick={() => setCalendar(false)}
                   className=" text-3xl cursor-pointer rounded-full  justify-center text-white absolute top-30 right-2 lg:top-10 lg:right-15 items-center "
                 >
-                  <GiCancel />
+                  <GiCancel className="text-3xl text-rose-500 hover:text-rose-600 " />
                 </button>
               </div>
             )}
