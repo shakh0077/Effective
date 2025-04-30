@@ -2,7 +2,7 @@ import React from 'react'
 
 function Kirish() {
   return (
-    <div>Kirish</div>
+    <div className='Box'>Kirish</div>
   )
 }
 

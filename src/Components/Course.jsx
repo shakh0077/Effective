@@ -29,7 +29,7 @@ function Course() {
           <div className="flex flex-col ">
             <h2 className="font-semibold text-lg">Front End 1.0</h2>
             <h2>1034</h2>
-            <Link to={""} className="flex items-center gap-1 text-blue-500">
+            <Link to={"/my-front-end"} className="flex items-center gap-1 text-blue-500">
               Kirish <BiChevronRight />
             </Link>
           </div>
@@ -45,7 +45,7 @@ function Course() {
             <h2 className="font-semibold text-lg">
             Programming (Front-end)А</h2>
             <h2>FRONT-1258</h2>
-            <Link to={""} className="flex items-center gap-1 text-blue-500">
+            <Link to={"/my-programing"} className="flex items-center gap-1 text-blue-500">
               Kirish <BiChevronRight />
             </Link>
           </div>
@@ -56,7 +56,7 @@ function Course() {
           <div className="flex flex-col ">
             <h2 className="font-semibold text-lg">Back-End (Python Basic)</h2>
             <h2>1034</h2>
-            <Link to={""} className="flex items-center gap-1 text-blue-500">
+            <Link to={"/my-python-basic"} className="flex items-center gap-1 text-blue-500">
               Kirish <BiChevronRight />
             </Link>
           </div>
@@ -68,7 +68,7 @@ function Course() {
             <h2 className="font-semibold text-lg">
             Back-End (TG Bot & SQL)</h2>
             <h2>1034</h2>
-            <Link to={""} className="flex items-center gap-1 text-blue-500">
+            <Link to={"/my-tgbot"} className="flex items-center gap-1 text-blue-500">
               Kirish <BiChevronRight />
             </Link>
           </div>
@@ -88,7 +88,7 @@ function Course() {
               </button>
             </h2>
             <h2>1034</h2>
-            <Link to={""} className="flex items-center gap-1 text-blue-500">
+            <Link to={"/my-beginner-online"} className="flex items-center gap-1 text-blue-500">
               Kirish <BiChevronRight />
             </Link>
           </div>
@@ -105,7 +105,7 @@ function Course() {
               </button>
             </h2>
             <h2>1034</h2>
-            <Link to={"/my-blogs"} className="flex items-center gap-1 text-blue-500">
+            <Link to={"/my-rocked-effective"} className="flex items-center gap-1 text-blue-500">
               Kirish <BiChevronRight />
             </Link>
           </div>

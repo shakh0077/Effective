@@ -121,7 +121,7 @@ export default function StarryBackground() {
 
       // Draw background gradient
       const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height)
-      gradient.addColorStop(0, "#0f172a") // Dark blue
+      gradient.addColorStop(0, "blue") // Dark blue
       gradient.addColorStop(1, "#1e293b") // Slightly lighter blue
       ctx.fillStyle = gradient
       ctx.fillRect(0, 0, canvas.width, canvas.height)

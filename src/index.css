@@ -5,7 +5,7 @@
     @apply bg-gradient-to-br from-blue-500 text-gray-900 to-pink-100
   }
   .Box{
-    @apply z-50 mt-4 ml-10
+    @apply p-5
   }
 
 

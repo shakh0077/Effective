@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { BsCollectionPlayFill, BsFire, BsLightningFill } from "react-icons/bs";
-import { GiToken } from "react-icons/gi";
-import { FaFire, FaHome, FaRegBell, FaBars, FaTimes } from "react-icons/fa";
+import { GiCancel, GiToken } from "react-icons/gi";
+import { FaFire, FaHome, FaRegBell, FaBars, FaTimes, FaRegCalendarAlt } from "react-icons/fa";
 import { HiVideoCamera } from "react-icons/hi2";
 import { TbXboxX } from "react-icons/tb";
+import { BiLogIn } from "react-icons/bi";
+import Calendar from "../Pages/Calendar";
 
 const GlobalLayout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [calendar, setCalendar] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -52,7 +55,6 @@ const GlobalLayout = () => {
   return (
     <div>
       <div className="max-w-[1480px] z-50  w-full mx-auto bg-white h-screen flex flex-col overflow-hidden">
-
         <header className="flex sticky bg-white top-0 z-30 justify-between py-5 px-4 md:px-10 items-center">
           <div className="flex items-center gap-4">
             <button
@@ -62,9 +64,9 @@ const GlobalLayout = () => {
               {isSidebarOpen ? <FaTimes /> : <FaBars />}
             </button>
             <Link to={"/main-page"}>
-              <h1 className="relative text-3xl lg:text-4xl font-extrabold flex items-center text-blue-600">
-                Effective{" "}
-                <span className="absolute top-0 left-33 lg:left-39  text-red-500 text-xl">
+              <h1 className="relative text-2xl lg:text-4xl font-extrabold flex items-center text-blue-600">
+                <span className="text-4xl lg:text-5xl font-serif">E</span>ffective{" "}
+                <span className="absolute top-0 left-29 lg:left-43  text-red-500 text-xl">
                   o
                 </span>
               </h1>
@@ -73,7 +75,7 @@ const GlobalLayout = () => {
           <div className="flex items-center gap-2.5">
             <button
               onClick={() => setIsModalOpen(true)}
-              className="cursor-pointer border lg:p-2 flex text-blue-500 items-center gap-1.5 rounded-2xl p-1 hover:bg-gray-100"
+              className="cursor-pointer border p-2  lg:p-2 flex text-blue-500 items-center gap-1.5 rounded-2xl  hover:bg-gray-100"
             >
               <FaFire className="text-amber-400" />3
             </button>
@@ -144,9 +146,26 @@ const GlobalLayout = () => {
               </div>
             )}
 
-            <button className="flex items-center border text-blue-500 gap-1.5 rounded-2xl p-1 lg:p-2 hover:bg-gray-100">
-              <GiToken className="text-amber-400" />5
+            <button
+              onClick={() => setCalendar(true)}
+              className="flex items-center border  cursor-pointer text-blue-500 gap-1.5 rounded-2xl p-2 lg:p-3 hover:bg-gray-100"
+            >
+              <GiToken className="text-amber-400" /><FaRegCalendarAlt className="text-xl" />
             </button>
+            {calendar && (
+              <div
+                className="fixed inset-0 px-3   bg-black/65 bg-opacity-50 flex items-center justify-center z-50"
+                onClick={() => setIsModalOpen(false)}
+              >
+                <Calendar />
+                <button
+                  onClick={() => setCalendar(false)}
+                  className=" text-3xl cursor-pointer rounded-full  justify-center text-white absolute top-30 right-2 lg:top-10 lg:right-15 items-center "
+                >
+                  <GiCancel />
+                </button>
+              </div>
+            )}
             <button className=" items-center gap-1.5 border lg:p-2 text-blue-500 rounded-2xl p-1 hidden md:flex hover:bg-gray-100">
               <BsLightningFill className="text-amber-400" />
               250
@@ -157,13 +176,13 @@ const GlobalLayout = () => {
           </div>
         </header>
 
-        <div className="flex flex-1 overflow-hidden z-20">
+        <div className="flex relative flex-1 overflow-hidden z-20">
           <aside
             className={`${isSidebarOpen ? "w-67" : "w-0"} 
           fixed md:relative h-full md:h-auto bg-white z-20 transition-all duration-300 overflow-hidden
           ${isSidebarOpen ? "shadow-md" : ""}`}
           >
-            <nav className="mt-4 p-4 flex flex-col ">
+            <nav className="mt-4 p-4 flex flex-col gap-3 ">
               <Link
                 to="/main-page"
                 className="px-5 py-3.5 text-xl font-medium rounded-xl flex items-center gap-3  hover:bg-gray-200 focus:bg-gradient-to-br from-blue-500 text-gray-900 to-pink-100 focus:text-red-500"
@@ -186,12 +205,21 @@ const GlobalLayout = () => {
                 onClick={closeSidebar}
               >
                 <HiVideoCamera className="text-purple-500" />
-                {isSidebarOpen && "Edvensed"}
+                {isSidebarOpen && "Vedeo darslar"}
+              </Link>
+
+              <Link
+                to="/
+                "
+                className="px-5 absolute bottom-10 left-5 py-3.5 text-xl font-medium rounded-xl flex items-center gap-3  hover:bg-gray-200 focus:bg-gradient-to-br from-blue-500 text-gray-900 to-pink-100 focus:text-red-500"
+                onClick={closeSidebar}
+              >
+                <BiLogIn className="text-red-600" />
+                {isSidebarOpen && " Chiqish"}
               </Link>
             </nav>
           </aside>
 
-          {/* Mobile overlay */}
           {isSidebarOpen && isMobile && (
             <div
               className="fixed inset-0 bg-black/50 z-10"
@@ -199,13 +227,12 @@ const GlobalLayout = () => {
             />
           )}
 
-          {/* Content */}
           <main
             className={` ${
               isSidebarOpen ? "ml-0 " : "ml-0"
             } transition-all duration-300 overflow-hidden`}
           >
-            <div className="h-full overflow-auto">
+            <div className="h-full w-full  overflow-auto">
               <Outlet />
             </div>
           </main>

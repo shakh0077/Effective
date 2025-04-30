@@ -1,8 +1,9 @@
 import React from 'react'
+// import Kirish from './Pages/Card'
 import GlobalRouter from './GlobalRouter/GlobalRouter'
-import Demo from './Components/Demo'
-import Neon from './Components/Neon'
-import AnimatedBackground from './Components/Neon'
+// import Demo from './Components/Demo'
+// import Neon from './Components/Neon'
+// import AnimatedBackground from './Components/Neon'
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <GlobalRouter/>
       {/* <Demo/> */}
     {/* <AnimatedBackground/> */}
+    {/* <Kirish/> */}
     </div>
   )
 }
