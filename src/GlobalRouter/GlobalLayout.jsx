@@ -14,6 +14,7 @@ import { HiVideoCamera } from "react-icons/hi2";
 import { TbXboxX } from "react-icons/tb";
 import { BiLogIn } from "react-icons/bi";
 import Calendar from "../Pages/Calendar";
+import { NavLink } from "react-router-dom";
 
 const GlobalLayout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -219,68 +220,125 @@ const GlobalLayout = () => {
             </button>
           </div>
         </header>
-
         <div className="flex relative flex-1 overflow-hidden z-20">
-          <aside
-            className={`${isSidebarOpen ? "w-67" : "w-0"} 
-          fixed md:relative h-full md:h-auto bg-white z-20 transition-all duration-300 overflow-hidden
-          ${isSidebarOpen ? "shadow-md" : ""}`}
-          >
-            <nav className="mt-4 p-4 flex flex-col gap-3 ">
-              <Link
-                to="/main-page"
-                className="px-5 py-3.5 text-xl font-medium rounded-xl flex items-center gap-3  hover:bg-gray-200 focus:bg-gradient-to-br from-blue-500 text-gray-900 to-pink-100 focus:text-red-500"
-                onClick={closeSidebar}
-              >
-                <FaHome className="text-red-500" />
-                {isSidebarOpen && "Asosiy"}
-              </Link>
-              <Link
-                to="/my-courses"
-                className="px-5 py-3.5 text-xl font-medium rounded-xl flex items-center gap-3  hover:bg-gray-200 focus:bg-gradient-to-br from-blue-500 text-gray-900 to-pink-100 focus:text-red-500"
-                onClick={closeSidebar}
-              >
-                <BsCollectionPlayFill className="text-blue-500" />
-                {isSidebarOpen && "Kurslarim"}
-              </Link>
-              <Link
-                to="/my-edvensed"
-                className="px-5 py-3.5 text-xl font-medium rounded-xl flex items-center gap-3  hover:bg-gray-200 focus:bg-gradient-to-br from-blue-500 text-gray-900 to-pink-100 focus:text-red-500"
-                onClick={closeSidebar}
-              >
-                <HiVideoCamera className="text-purple-500" />
-                {isSidebarOpen && "Vedeo darslar"}
-              </Link>
+  <aside
+    className={`${isSidebarOpen ? "w-67" : "w-0"} 
+    fixed md:relative h-full md:h-auto bg-white z-20 transition-all duration-300 overflow-hidden
+    ${isSidebarOpen ? "shadow-md" : ""}`}
+  >
+    <nav className="mt-4 p-4 flex flex-col gap-3">
+      {/* Replace Link with NavLink and use 'end' prop for exact matching */}
+      <NavLink
+        to="/main-page"
+        end
+        className={({ isActive }) => 
+          `px-5 py-3.5 text-xl font-medium rounded-xl flex items-center gap-3 transition-all duration-200
+          ${isActive 
+            ? "bg-gradient-to-r from-blue-100 to-purple-100 border-l-4 border-blue-500 shadow-sm" 
+            : "hover:bg-gray-200"
+          }`
+        }
+        onClick={closeSidebar}
+      >
+        {({ isActive }) => (
+          <>
+            <FaHome className={`${isActive ? "text-red-600 scale-110" : "text-red-500"} transition-transform duration-200`} />
+            {isSidebarOpen && "Asosiy"}
+            {isActive && (
+              <span className="ml-auto w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+            )}
+          </>
+        )}
+      </NavLink>
 
-              <Link
-                to="/
-                "
-                className="px-5 absolute bottom-10 left-5 py-3.5 text-xl font-medium rounded-xl flex items-center gap-3  hover:bg-gray-200 focus:bg-gradient-to-br from-blue-500 text-gray-900 to-pink-100 focus:text-red-500"
-                onClick={closeSidebar}
-              >
-                <BiLogIn className="text-red-600" />
-                {isSidebarOpen && " Chiqish"}
-              </Link>
-            </nav>
-          </aside>
+      <NavLink
+        to="/my-courses"
+        className={({ isActive }) => 
+          `px-5 py-3.5 text-xl font-medium rounded-xl flex items-center gap-3 transition-all duration-200
+          ${isActive 
+            ? "bg-gradient-to-r from-blue-100 to-purple-100 border-l-4 border-blue-500 shadow-sm" 
+            : "hover:bg-gray-200"
+          }`
+        }
+        onClick={closeSidebar}
+      >
+        {({ isActive }) => (
+          <>
+            <BsCollectionPlayFill className={`${isActive ? "text-blue-600 scale-110" : "text-blue-500"} transition-transform duration-200`} />
+            {isSidebarOpen && "Kurslarim"}
+            {isActive && (
+              <span className="ml-auto w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+            )}
+          </>
+        )}
+      </NavLink>
 
-          {isSidebarOpen && isMobile && (
-            <div
-              className="fixed inset-0 bg-black/50 z-10"
-              onClick={toggleSidebar}
-            />
-          )}
+      <NavLink
+        to="/my-edvensed"
+        className={({ isActive }) => 
+          `px-5 py-3.5 text-xl font-medium rounded-xl flex items-center gap-3 transition-all duration-200
+          ${isActive 
+            ? "bg-gradient-to-r from-blue-100 to-purple-100 border-l-4 border-blue-500 shadow-sm" 
+            : "hover:bg-gray-200"
+          }`
+        }
+        onClick={closeSidebar}
+      >
+        {({ isActive }) => (
+          <>
+            <HiVideoCamera className={`${isActive ? "text-purple-600 scale-110" : "text-purple-500"} transition-transform duration-200`} />
+            {isSidebarOpen && "Video darslar"}
+            {isActive && (
+              <span className="ml-auto w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+            )}
+          </>
+        )}
+      </NavLink>
 
-          <main
-            className={` ${
-              isSidebarOpen ? "ml-0 " : "ml-0"
-            } transition-all duration-300 overflow-hidden`}
-          >
-            <div className="h-full w-full  overflow-auto">
-              <Outlet />
-            </div>
-          </main>
-        </div>
+      <NavLink
+        to="/"
+        end
+        className={({ isActive }) => 
+          `px-5 absolute bottom-10 left-5 py-3.5 text-xl font-medium rounded-xl flex items-center gap-3 transition-all duration-200
+          ${isActive 
+            ? "bg-gradient-to-r from-blue-100 to-purple-100 border-l-4 border-blue-500 shadow-sm" 
+            : "hover:bg-gray-200"
+          }`
+        }
+        onClick={() => {
+          closeSidebar();
+        }}
+      >
+        {({ isActive }) => (
+          <>
+            <BiLogIn className={`${isActive ? "text-red-700 scale-110" : "text-red-600"} transition-transform duration-200`} />
+            {isSidebarOpen && "Chiqish"}
+            {isActive && (
+              <span className="ml-auto w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+            )}
+          </>
+        )}
+      </NavLink>
+    </nav>
+  </aside>
+
+  {isSidebarOpen && isMobile && (
+    <div
+      className="fixed inset-0 bg-black/50 z-10"
+      onClick={toggleSidebar}
+    />
+  )}
+
+  <main
+    className={`${
+      isSidebarOpen ? "ml-0" : "ml-0"
+    } transition-all duration-300 overflow-hidden`}
+  >
+    <div className="h-full w-full overflow-auto">
+      <Outlet />
+    </div>
+  </main>
+</div>
       </div>
     </div>
   );

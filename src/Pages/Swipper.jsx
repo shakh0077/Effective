@@ -45,11 +45,11 @@ const AppPromoSwiper = () => {
         </SwiperSlide>
 
         <SwiperSlide className="flex flex-col items-center relative  justify-center p-6 bg-gradient-to-br from-blue-700 to-purple-500">
-          <div className=" ">
-            <img src={Bacg} className="w-150 absolute -top-10 left-0  object-cover " alt="" />
+          <div className=" px-5 ">
+            <img src={Bacg} className="w-150 absolute top-20 md:-top-7 lg:-top-15 left-0  object-cover " alt="" />
           </div>
           <div>
-            <p className="italic absolute right-7 text-lg mb-4 text-end">
+            <p className="font-semibold md:text-lg absolute right-0 px-3  text-md mb-4">
               Effectiveda o'z bilim va ish tajribangizni oshirishingiz mumkin. <br />
               Bunday imkoniyatni qo'ldan boy bermang!
             </p> 
