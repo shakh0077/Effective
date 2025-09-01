@@ -44,8 +44,8 @@ const Login = () => {
 
       <div className="relative z-10 flex flex-col justify-center items-center min-h-screen p-5">
         <h1 className="text-4xl absolute top-8 left-8 font-extrabold flex items-center text-white mb-6">
-          <span className="text-6xl font-serif">E</span>ffective{" "}
-          <span className="text-red-500 text-xl absolute top-2 left-45">o</span>
+          <span className="text-6xl font-serif">Sh</span>akh Academy{" "}
+          <span className="text-red-500 text-xl absolute top-2 left-80">o</span>
         </h1>
         <form
           onSubmit={onLogin}
