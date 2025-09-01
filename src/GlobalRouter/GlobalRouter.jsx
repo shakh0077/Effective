@@ -23,13 +23,16 @@ const GlobalRouter = () => {
           <Route path="/main-page" element={<MainPage/>} />
           <Route path="/my-courses" element={<Course/>} />
           <Route path="/my-edvensed" element={<Edvensed/>} />
-          <Route path="/my-front-end" element={<FrontEnd/>} />
+       
           <Route path="/my-programing" element={<Programing/>} />
           <Route path="/my-python-basic" element={<PythonBasic/>} />
           <Route path="/my-tgbot" element={<Tgbot/>} />
           <Route path="/my-beginner-online" element={<BeginnerOnline/>} />
           <Route path="/my-rocked-effective" element={<RockedEffective/>} />
         </Route>
+      </Routes>
+      <Routes>
+           <Route path="/my-front-end" element={<FrontEnd/>} />
       </Routes>
     </BrowserRouter>
   );

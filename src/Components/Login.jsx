@@ -52,7 +52,7 @@ const Login = () => {
           className="max-w-md mx-auto bg-white p-6 md:p-8 rounded-xl shadow-lg"
         >
           <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-gray-800">
-            Effectivega Hush Kelibsiz
+            Shakh Academyga Hush Kelibsiz
           </h2>
           <div className="space-y-4">
             <div className="space-y-2">

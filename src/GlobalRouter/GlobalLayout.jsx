@@ -73,9 +73,9 @@ const GlobalLayout = () => {
             </button>
             <Link to={"/main-page"}>
               <h1 className="relative text-2xl lg:text-4xl font-extrabold flex items-center text-blue-600">
-                <span className="text-4xl lg:text-5xl font-serif">E</span>
-                ffective{" "}
-                <span className="absolute top-0 left-29 lg:left-43  text-red-500 text-xl">
+                <span className="text-4xl lg:text-5xl font-serif">Sh</span>
+                akh {" "}
+                <span className="absolute top-0 left-23 lg:left-33  text-red-500 text-xl">
                   o
                 </span>
               </h1>

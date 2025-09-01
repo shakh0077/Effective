@@ -50,7 +50,7 @@ const AppPromoSwiper = () => {
           </div>
           <div>
             <p className="font-semibold md:text-lg absolute right-0 px-3  text-md mb-4">
-              Effectiveda o'z bilim va ish tajribangizni oshirishingiz mumkin. <br />
+              Shakh Academyda o'z bilim va ish tajribangizni oshirishingiz mumkin. <br />
               Bunday imkoniyatni qo'ldan boy bermang!
             </p> 
           </div>
