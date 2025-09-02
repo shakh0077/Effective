@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useAuth } from "../Components/AuthContext";
 import { Link, Outlet } from "react-router-dom";
+import avatarImg from "../assets/Oybek.png";
+import defaultAvatar from "../assets/react.svg";
 import { BsCollectionPlayFill, BsFire, BsLightningFill } from "react-icons/bs";
 import { GiCancel, GiToken } from "react-icons/gi";
 import {
@@ -60,6 +63,8 @@ const GlobalLayout = () => {
     { name: "Yak", active: false },
   ];
 
+  const { user } = useAuth();
+
   return (
     <div>
       <div className="max-w-[1480px] z-50  w-full mx-auto bg-white h-screen flex flex-col overflow-hidden">
@@ -82,6 +87,16 @@ const GlobalLayout = () => {
             </Link>
           </div>
           <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2 px-3 py-1 bg-blue-50 rounded-xl border border-blue-100">
+              <span className="font-semibold text-blue-700">
+                {user && (user.firstName || user.name) ? `${user.firstName || user.name} ${user.lastName || ''}`.trim() : 'Guest'}
+              </span>
+              <img
+                src={user && user.firstName ? avatarImg : defaultAvatar}
+                alt="avatar"
+                className="w-8 h-8 rounded-full border border-blue-200"
+              />
+            </div>
             <button
               onClick={() => setIsModalOpen(true)}
               className="cursor-pointer border p-2  lg:p-2 flex text-blue-500 items-center gap-1.5 rounded-2xl  hover:bg-gray-100"

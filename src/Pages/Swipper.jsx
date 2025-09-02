@@ -18,7 +18,7 @@ const slides = [
     id: 2,
     title: " AI va ta'limni kashf eting",
     subtitle: " Sun'iy intellekt va ta'limning kelajagi",
-    img: "https://i0.wp.com/verbalistseducation.com/wp-content/uploads/2024/07/Education-in-the-post-AI-world-Verbalists-Education.jpg",
+    img: "https://yuz.uz/imageproxy/1200x/https://yuz.uz/file/news/c7a05c492d2c4fdb5009d80ce902530e.png",
     cta: [ "Kursni boshlash"],
   },
   {
@@ -54,7 +54,7 @@ const AppPromoSwiper = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 "></div>
 
             {/* Content */}
-            <div className="text-center px-6 md:px-12 lg:mt-27 ">
+            <div className="text-center mt-16 px-6 md:px-12 lg:mt-27 ">
               <h1 className="text-3xl md:text-5xl font-bold mb-4 animate-fadeIn">
                 {slide.title}
               </h1>
